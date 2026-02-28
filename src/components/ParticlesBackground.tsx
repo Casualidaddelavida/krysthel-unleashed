@@ -55,14 +55,15 @@ const ParticlesBackground = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = p.color.replace(")", ` / ${p.opacity})`).replace("hsl(", "hsl(");
+        const [h, s, l] = p.color.match(/[\d.]+/g)!.map(Number);
+        ctx.fillStyle = `hsla(${h}, ${s}%, ${l}%, ${p.opacity})`;
         ctx.fill();
 
         // Glow
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size * 3, 0, Math.PI * 2);
         const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 3);
-        grad.addColorStop(0, p.color.replace(")", ` / ${p.opacity * 0.3})`));
+        grad.addColorStop(0, `hsla(${h}, ${s}%, ${l}%, ${p.opacity * 0.3})`);
         grad.addColorStop(1, "transparent");
         ctx.fillStyle = grad;
         ctx.fill();
