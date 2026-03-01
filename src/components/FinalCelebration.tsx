@@ -88,7 +88,7 @@ const FinalCelebration = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
             >
-              Feliz cumpleaños, ícono del caos elegante. 💫
+              Feliz cumpleaños krykry, que la pases genial y sabes que cualquier cosa me puedes decir!. 💫
             </motion.p>
 
             <motion.div

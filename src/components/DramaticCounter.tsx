@@ -16,10 +16,12 @@ const AnimatedNumber = ({ target, suffix }: { target: number; suffix: string }) 
   useEffect(() => {
     if (!inView) return;
     if (target === 0) return;
+
     const duration = 2000;
     const steps = 60;
     const increment = target / steps;
     let current = 0;
+
     const timer = setInterval(() => {
       current += increment;
       if (current >= target) {
@@ -29,13 +31,25 @@ const AnimatedNumber = ({ target, suffix }: { target: number; suffix: string }) 
         setCount(Math.floor(current));
       }
     }, duration / steps);
+
     return () => clearInterval(timer);
   }, [inView, target]);
 
   return (
-    <div ref={ref} className="text-center">
+    <div ref={ref} className="text-center w-full min-w-0">
       <motion.div
-        className="font-display text-5xl sm:text-7xl font-black bg-party-gradient bg-clip-text text-transparent"
+        className="
+          font-display 
+          text-3xl 
+          sm:text-5xl 
+          md:text-6xl 
+          font-black 
+          bg-party-gradient 
+          bg-clip-text 
+          text-transparent 
+          break-words 
+          leading-tight
+        "
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
@@ -50,21 +64,27 @@ const AnimatedNumber = ({ target, suffix }: { target: number; suffix: string }) 
 const DramaticCounter = () => {
   return (
     <section className="relative z-10 min-h-screen flex flex-col items-center justify-center py-20 px-6">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 max-w-5xl w-full">
+      
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 max-w-6xl w-full">
+        
         {counters.map((c, i) => (
           <motion.div
             key={i}
-            className="glass rounded-2xl p-6 sm:p-8 flex flex-col items-center gap-3"
+            className="glass rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center gap-3 min-w-0"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.15 }}
-            whileHover={{ scale: 1.05, boxShadow: "0 0 25px hsl(320 90% 55% / 0.3)" }}
+            whileHover={{ scale: 1.05 }}
           >
             <AnimatedNumber target={c.target} suffix={c.suffix} />
-            <p className="font-body text-sm sm:text-base text-muted-foreground uppercase tracking-wider">{c.label}</p>
+            
+            <p className="font-body text-sm sm:text-base text-muted-foreground uppercase tracking-wider text-center">
+              {c.label}
+            </p>
           </motion.div>
         ))}
+
       </div>
 
       <motion.p

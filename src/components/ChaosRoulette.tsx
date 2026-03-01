@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 const phrases = [
   "Krysthel nunca llega tarde, el tiempo se adapta.",
   "30 años siendo icónica sin pedir permiso.",
-  "Modo señora activado… parcialmente.",
-  "Sarcasmo refinado al nivel experto.",
-  "Caos premium certificado.",
+  "Cada día es una nueva oportunidad, y sé que harás cosas increíbles.",
+  "Confía en ti misma, Krys. Tienes un gran potencial.",
+  "Eres como un rayo de sol en un día nublado; ¡siempre traes alegría!",
   "Krysthel no envejece, sube de nivel.",
   "Su energía debería ser estudiada por la ciencia.",
   "Convierte el drama en contenido premium.",

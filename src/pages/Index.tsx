@@ -9,6 +9,7 @@ import PhraseGenerator from "@/components/PhraseGenerator";
 import GameEvolution from "@/components/GameEvolution";
 import PersonalLetter from "@/components/PersonalLetter";
 import FinalCelebration from "@/components/FinalCelebration";
+import NeonCat from "@/components/NeonCat"; // 🐱 IMPORTADO
 import { useSecretClicks } from "@/components/SecretMessage";
 
 const Index = () => {
@@ -45,9 +46,11 @@ const Index = () => {
                   transition={{ type: "spring", damping: 10 }}
                 >
                   <p className="text-4xl mb-4">🕵️</p>
-                  <p className="font-display text-xl sm:text-2xl font-bold bg-party-gradient bg-clip-text text-transparent">
+
+                  <p className="inline-block font-display text-xl sm:text-2xl font-bold bg-party-gradient bg-clip-text text-transparent">
                     Ya madura… mentira no, sigue igual.
                   </p>
+
                   <p className="text-muted-foreground mt-4 font-body text-sm">
                     (Mensaje secreto desbloqueado)
                   </p>
@@ -57,10 +60,12 @@ const Index = () => {
           </AnimatePresence>
 
           <main className="relative">
-            {/* Hero title - clickable for secret */}
-            <section className="relative z-10 flex items-center justify-center min-h-[50vh] pt-20">
+            
+            {/* Hero title */}
+            <section className="relative z-10 flex flex-col items-center justify-center min-h-[45vh] pt-20">
+              
               <motion.h1
-                className="font-display text-4xl sm:text-6xl md:text-7xl font-black text-center bg-party-gradient bg-clip-text text-transparent cursor-pointer select-none px-6"
+                className="inline-block font-display text-4xl sm:text-6xl md:text-7xl font-black text-center bg-party-gradient bg-clip-text text-transparent cursor-pointer select-none px-6"
                 onClick={handleClick}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -70,8 +75,13 @@ const Index = () => {
               >
                 KRYSTHEL 3.0
               </motion.h1>
+
             </section>
 
+            {/* 🐱 MICHI NEÓN */}
+            <NeonCat />
+
+            {/* CONTADORES */}
             <DramaticCounter />
             <CakeGame />
             <ChaosRoulette />
@@ -83,9 +93,10 @@ const Index = () => {
             {/* Footer */}
             <footer className="relative z-10 text-center py-12 px-6">
               <p className="font-body text-sm text-muted-foreground">
-                Hecho con 💜 y mucho caos creativo
+                Hecho con mucho cariño uwu💜 
               </p>
             </footer>
+
           </main>
         </>
       )}

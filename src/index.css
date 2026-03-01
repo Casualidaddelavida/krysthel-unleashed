@@ -82,8 +82,10 @@
   }
 
   .bg-party-gradient {
-    background: var(--gradient-party);
-  }
+  background-image: var(--gradient-party);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
 
   .shadow-neon-pink {
     box-shadow: var(--shadow-neon-pink);
